@@ -544,7 +544,7 @@ class NestedUNet(nn.Module):
         return output
 
 #Dictioary Unet
-#if required for getting the filters and model parameters for each step 
+#if required for getting the filters and pretrained_model parameters for each step
 
 class ConvolutionBlock(nn.Module):
     """Convolution block"""

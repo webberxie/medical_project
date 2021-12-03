@@ -1,0 +1,17 @@
+name: Unet2plus_batch_6_withenhancemove_withpretrain
+arch: Unet2Plus
+deepsupervision: False
+dataset: None
+input_channels: 1
+image_ext: png
+mask_ext: png
+aug: False
+loss: BCEDiceLoss
+epochs: 1000
+early_stop: 100
+batch_size: 6
+optimizer: Adam
+lr: 0.0003
+momentum: 0.9
+weight_decay: 0.0001
+nesterov: False

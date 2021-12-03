@@ -22,7 +22,7 @@ class BCEDiceLoss(nn.Module):
 
     def forward(self, input, target):
         #weight = 2 * target.clone()
-        bce = F.binary_cross_entropy_with_logits(input, target)
+        bce = F.binary_cross_entropy_with_logits(input, target) # bce_loss(两个张量的交叉熵损失)
         smooth = 1e-5
         input = torch.sigmoid(input)
         #bce = binary_cross_entropyloss(input, target, weight)
@@ -31,7 +31,7 @@ class BCEDiceLoss(nn.Module):
         target = target.view(num, -1)
         intersection = (input * target)
         dice = (2. * intersection.sum(1) + smooth) / (input.sum(1) + target.sum(1) + smooth)
-        dice = 1 - dice.sum() / num
+        dice = 1 - dice.sum() / num # dices系数损失
         return 0.5 * bce + dice
         #return 0.2 * bce + torch.log((torch.exp(dice) + torch.exp(-dice)) / 2.0)
 
